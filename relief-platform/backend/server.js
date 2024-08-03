@@ -6,6 +6,7 @@ const needsRoutes = require('./routes/needsRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
 const campRoutes = require('./routes/campRoutes');
 const collectionPointRoutes = require('./routes/collectionPointRoutes');
+const { createAdminUser } = require('./setupAdmin');
 
 const app = express();
 const port = 3000;
@@ -62,6 +63,9 @@ app.get('/camp-assistant-needs', (req, res) => {
 app.get('/collection-agent-responded-needs', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/collection-agent-responded-needs.html'));
 });
+
+// Create admin user if not exists
+createAdminUser();
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
