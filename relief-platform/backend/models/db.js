@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'relief_user',
   password: 'password',
   database: 'relief_platform'
